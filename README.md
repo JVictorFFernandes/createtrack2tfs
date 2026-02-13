@@ -48,13 +48,14 @@ cd create_cisTarget_databases
 Criação do ambiente:
 
 ```bash
-conda create -n create_cistarget_databases \
-    'python=3.10' \
-    'numpy=1.21' \
-    'pandas>=1.4.1' \
-    'pyarrow>=7.0.0' \
-    'numba>=0.55.1' \
-    'python-flatbuffers'
+conda create -n create_cistarget_databases -c conda-forge --strict-channel-priority \
+    "python=3.10" \
+    "numpy>=1.22.4,<2" \
+    "pandas<2" \
+    "pyarrow>=7.0.0" \
+    "numba>=0.58" \
+    "python-flatbuffers"
+
 ```
 
 Ativação:
@@ -112,8 +113,15 @@ ${create_cistarget_databases_dir}/create_cistarget_track_databases.py --help
 Se o help for exibido, a instalação está correta.
 
 ---
+## 8. Baixando arquivos necessários
+```bash
+wget https://resources.aertslab.org/cistarget/regions/hg38-limited-upstream10000-tss-downstream10000-full-transcript.bed
+```
+```bash
+wget https://resources.aertslab.org/cistarget/regions hg38-limited-upstream500-tss-downstream100-full-transcript.bed
+```
 
-## 8. Gerando a Database a partir de ChIP-seq
+## 9. Gerando a Database a partir de ChIP-seq
 
 ### Estrutura necessária:
 
